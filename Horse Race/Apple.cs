@@ -42,7 +42,6 @@ namespace Horse_Race
         public void Reset() //Getting Apple out of race for next round
         {
             LaneNum = 0;
-
             Picture.Visible = false;
         }
     }
