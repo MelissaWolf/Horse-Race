@@ -352,12 +352,13 @@
             // 
             this.Apple.BackColor = System.Drawing.Color.Transparent;
             this.Apple.Image = global::Horse_Race.MainResource.Apple;
-            this.Apple.Location = new System.Drawing.Point(205, 715);
+            this.Apple.Location = new System.Drawing.Point(211, 701);
             this.Apple.Name = "Apple";
             this.Apple.Size = new System.Drawing.Size(42, 43);
             this.Apple.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Apple.TabIndex = 37;
             this.Apple.TabStop = false;
+            this.Apple.Visible = false;
             // 
             // TrophyImg
             // 

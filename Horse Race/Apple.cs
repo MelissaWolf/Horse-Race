@@ -27,6 +27,7 @@ namespace Horse_Race
         {
             //Placing apple in correct lane
             Picture.Location = new Point(490, (LaneNum * 110) - 80);
+            Picture.Visible = true;
 
             if (Rotten == true) //Changing picture to BadApple if Rotten
             {
@@ -41,9 +42,8 @@ namespace Horse_Race
         public void Reset() //Getting Apple out of race for next round
         {
             LaneNum = 0;
-            Picture.Location = new Point(205, 715);
 
-            Picture.Visible = true;
+            Picture.Visible = false;
         }
     }
 }
