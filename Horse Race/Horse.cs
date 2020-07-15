@@ -25,24 +25,50 @@ namespace Horse_Race
             Picture = picture;
         }
 
-        public void Run(int speed)
+        public void Run(int speed, Apple LuckyApple)
         {
-            if (LapNum == 1)
-            { //Horse is running left
+
+            if (LapNum == 1) //Horse is running left
+            {
                 Picture.Location = new Point((Picture.Location.X - speed <= 12 ? 12 : Picture.Location.X - speed), Picture.Location.Y);
             }
-            else if (Picture.Location.X + speed > 1100)
-            { //Horse touches right line
+            else if (Picture.Location.X + speed > 1100) //Horse touches right line and turns around
+            {
                 speed = (Picture.Location.X + speed) - 1100;
                 Picture.Location = new Point(1100 - speed, Picture.Location.Y);
                 Picture.Image.RotateFlip(RotateFlipType.Rotate180FlipY);
-                Console.WriteLine("LineTouch by "+LapNum);
 
                 LapNum = 1;
             }
-            else
-            { //Horse is running right
+            else //Horse is running right
+            {
+
+                if (Picture.Location.X + speed >= 360 && LuckyApple.LaneNum == Num) //If horse touches apple
+                {
+                    if (LuckyApple.Rotten == true) //Horse stops by bad apple
+                    {
+                        Picture.Location = new Point(360, Picture.Location.Y);
+                        speed = 0;
+                    }
+                    else //Horse gets speed boost
+                    {
+                        speed = speed + 15;
+                        LuckyApple.Picture.Visible = false; //Because Apple is eaten
+                    }
+                }
+
                 Picture.Location = new Point(Picture.Location.X + speed, Picture.Location.Y);
+            }
+        }
+
+        public void Back2Start() //Sends horses back to start
+        {
+            Picture.Location = new Point(-27, Picture.Location.Y);
+
+            if (LapNum != 0)
+            {
+                Picture.Image.RotateFlip(RotateFlipType.Rotate180FlipY);
+                LapNum = 0;
             }
         }
     }

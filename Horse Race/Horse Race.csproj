@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apple.cs" />
     <Compile Include="asnyc.cs" />
     <Compile Include="Bet.cs" />
     <Compile Include="Horse.cs" />
@@ -98,57 +99,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GrassBG.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GrassBG.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DirtLane.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DirtCheckeredLine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Blizzard.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Blossom.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Prince.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Wisp.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Blizzard.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Blossom.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Prince.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Wisp.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Horse3.wmf" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Horse1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Horse2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Horse4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Horse3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Horse1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +112,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\RaceTrack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apple1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trophy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BadApple.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

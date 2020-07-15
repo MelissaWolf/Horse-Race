@@ -63,6 +63,26 @@ namespace Horse_Race {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Apple {
+            get {
+                object obj = ResourceManager.GetObject("Apple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BadApple {
+            get {
+                object obj = ResourceManager.GetObject("BadApple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Blizzard {
             get {
                 object obj = ResourceManager.GetObject("Blizzard", resourceCulture);
@@ -96,6 +116,16 @@ namespace Horse_Race {
         internal static System.Drawing.Bitmap RaceTrack {
             get {
                 object obj = ResourceManager.GetObject("RaceTrack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Trophy {
+            get {
+                object obj = ResourceManager.GetObject("Trophy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

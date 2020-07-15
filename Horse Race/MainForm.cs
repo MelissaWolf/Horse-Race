@@ -30,7 +30,8 @@ namespace Horse_Race
         Bet MelBet;
         Bet MarBet;
 
-        Bet[] AllBets = new Bet[3];
+        //Creating Apple
+        Apple LuckyApple;
 
         public MainForm()
         {
@@ -45,66 +46,68 @@ namespace Horse_Race
             Horses[2] = (Blizzard = new Horse("Blizzard", 3, BlizzardPic));
             Horses[3] = (Blossom = new Horse("Blossom", 4, BlossomPic));
 
+            //Defining Punters
             Punters[0] = Factory.MakePunter("Jack", JacRadioBtn, JacTxtBox, JacBet);
             Punters[1] = Factory.MakePunter("Melissa", MelRadioBtn, MelTxtBox, MelBet);
             Punters[2] = Factory.MakePunter("Marina", MarRadioBtn, MarTxtBox, MarBet);
+
+            //Defining Apple
+            LuckyApple = new Apple(0, Apple, false);
         }
 
         private async void RaceBtn_Click(object sender, EventArgs e)
         {
-            Random speed = new Random();
+            Random rand = new Random();
             string results = "";
+            string betResults = "";
+            TrophyImg.Enabled = false;
+            TrackHorseSpeed.Visible = true;
+            HorseSpeedLbl.Visible = true;
 
             while (results == "") //Run til we have a winner
             {
                 //Horses all run
                 for (int i = 0; i < Horses.Length; i++)
                 {
-                    Horses[i].Run(speed.Next(1, 50));
+                    Horses[i].Run(rand.Next(1, 50), LuckyApple);
 
                     if (Horses[i].Picture.Location.X == 12 && Horses[i].LapNum == 1 && results == "") //Current only winner
                     {
                         results = Horses[i].Name + "(" + Horses[i].Num + ") is the Winner!";
                     }
-                    else if (Horses[i].Picture.Location.X == 12 && Horses[i].LapNum == 1 && results != "")
-                    { //Multiple winners
+                    else if (Horses[i].Picture.Location.X == 12 && Horses[i].LapNum == 1 && results != "") //Multiple winners
+                    {
                         results = "Tie!";
                         break;
                     }
                 }
 
                 //Repeats after tiny break
-                await Task.Delay(50);
+                await Task.Delay(300 / TrackHorseSpeed.Value);
             }
 
-            RaceResultTxtBox.Visible = true;
-            RaceResultTxtBox.Text = results;
+            TrackHorseSpeed.Visible = false;
+            HorseSpeedLbl.Visible = false;
 
             //Winners receive their money
             for (int i = 0; i < Punters.Length; i++)
             {
-                if (results.Contains(AllBets[i].HorseBetOn.Name) == true && Punters[i].TotMoney > 0) //If horse wins
-                {
-                    Punters[i].TotMoney = Punters[i].TotMoney + (AllBets[i].MoneyBet * 2);
-                    Punters[i].TxtBox.Text = Punters[i].Name + " just won " + (AllBets[i].MoneyBet * 2) + " they now have a total of $" + Punters[i].TotMoney + ".";
-                }
-                else if (Punters[i].TotMoney > 0)
-                { //Horse did not win
-                    Punters[i].TotMoney = Punters[i].TotMoney - AllBets[i].MoneyBet;
-
-                    if (Punters[i].TotMoney > 0)
-                    {
-                        Punters[i].TxtBox.Text = Punters[i].Name + " lost $" + AllBets[i].MoneyBet + " they now have a total of $" + Punters[i].TotMoney + ".";
-                    }
-                    else
-                    {
-                        Punters[i].TxtBox.Text = Punters[i].Name + " is broke :(";
-                    }
-                }
+                Punters[i].PayMe(results, betResults, out string payResults, Punters);
+                betResults = payResults;
             }
 
+            RaceResultTxtBox.Visible = true;
+            RaceResultTxtBox.Text = results + betResults;
             RaceBtn.Enabled = false;
-            RestartBtn.Visible = true;
+
+            if (betResults == "") //Game is still going
+            {
+                RestartBtn.Visible = true;
+            }
+            else //Game Over
+            {
+                NewGameBtn.Visible = true;
+            }
 
             await Task.Delay(1);
 
@@ -137,9 +140,9 @@ namespace Horse_Race
             {
                 if (Punters[i].RadioBtn.Checked == true)
                 {
-                    AllBets[i] = (Punters[i].MyBet = new Bet(Horses[Convert.ToInt32(BetHorseNumBox.Value) - 1], Convert.ToInt32(BetMoneyNumBox.Value)));
+                    Punters[i].MyBet = new Bet(Horses[Convert.ToInt32(BetHorseNumBox.Value) - 1], Convert.ToInt32(BetMoneyNumBox.Value));
                     Punters[i].TxtBox.Text = Punters[i].Name + " betted $" + BetMoneyNumBox.Value + " on " + Horses[Convert.ToInt32(BetHorseNumBox.Value) - 1].Name
-                        + " (" + BetHorseNumBox.Value + ").";
+                        + "(" + BetHorseNumBox.Value + ").";
 
                     Punters[i].RadioBtn.Checked = false;
                     Punters[i].RadioBtn.Enabled = false;
@@ -150,9 +153,8 @@ namespace Horse_Race
             {
                 BetBtn.Enabled = false;
                 RaceBtn.Enabled = true;
+                TrophyImg.Enabled = true;
             }
-
-            //Debug.WriteLine(Horses.Where<Horse>(x=>x.Picture.Image.))
 
         } //BetBtn End *****
 
@@ -161,28 +163,58 @@ namespace Horse_Race
             RestartBtn.Visible = false;
             BetBtn.Enabled = true;
             RaceResultTxtBox.Visible = false;
+            LuckyApple.LaneNum = 0;
+
+            //Disenabling Apple
+            LuckyApple.Reset();
 
             for (int i = 0; i < Horses.Length; i++) //Sending all horses back to start
             {
-                Horses[i].Picture.Location = new Point(12, Horses[i].Picture.Location.Y);
-
-                if (Horses[i].LapNum != 0) {
-                    Console.WriteLine("ResartBtn" + Horses[i].LapNum);
-                    Horses[i].Picture.Image.RotateFlip(RotateFlipType.Rotate180FlipY);
-                    Horses[i].LapNum = 0;
-                }
+                Horses[i].Back2Start();
             }
 
             for (int i = 0; i < Punters.Length; i++) //Getting new bets
             {
-                if (Punters[i].TotMoney != 0)
-                {
-                    Punters[i].RadioBtn.Enabled = true;
-                    Punters[i].TxtBox.Text = Punters[i].Name + " place your bet";
-                }
+                Punters[i].NextRace();
+            }
+
+        } //RestartBtn ends
+
+        private void NewGameBtn_Click(object sender, EventArgs e)
+        {
+            NewGameBtn.Visible = false;
+            BetBtn.Enabled = true;
+            RaceResultTxtBox.Visible = false;
+            Factory.count = 3; //All Punters are back in
+            MaxBetTxtBox.Text = "Max Bet is $50";
+
+            //Disenabling Apple
+            LuckyApple.Reset();
+
+            for (int i = 0; i < Horses.Length; i++) //Sending all horses back to start
+            {
+                Horses[i].Back2Start();
+            }
+
+            for (int i = 0; i < Punters.Length; i++) //Giving Punters $50
+            {
+                Punters[i].NewGame();
+            }
+        } //NewGameBtn ends
+
+        private void TrophyImg_Click(object sender, EventArgs e)
+        {
+
+            if (LuckyApple.LaneNum == 0) //ENsures you cant change apple once in
+            {
+                Random rand = new Random();
+
+                //Placing lucky apple
+                LuckyApple = new Apple(rand.Next(1, 5), Apple, rand.Next(0, 10) == 0 ? true : false); //Determines is Apple is rotten or fresh
+
+                LuckyApple.PlaceApple();
             }
 
         }
-
     }
 }

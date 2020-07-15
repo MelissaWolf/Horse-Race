@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.RaceBtn = new System.Windows.Forms.Button();
-            this.PrincePic = new System.Windows.Forms.PictureBox();
-            this.BlizzardPic = new System.Windows.Forms.PictureBox();
-            this.BlossomPic = new System.Windows.Forms.PictureBox();
             this.JacRadioBtn = new System.Windows.Forms.RadioButton();
             this.MelRadioBtn = new System.Windows.Forms.RadioButton();
             this.MarRadioBtn = new System.Windows.Forms.RadioButton();
@@ -47,60 +45,38 @@
             this.MaxBetTxtBox = new System.Windows.Forms.TextBox();
             this.BetBtn = new System.Windows.Forms.Button();
             this.RestartBtn = new System.Windows.Forms.Button();
-            this.WispPic = new System.Windows.Forms.PictureBox();
             this.RaceResultTxtBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PrincePic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BlizzardPic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BlossomPic)).BeginInit();
+            this.NewGameBtn = new System.Windows.Forms.Button();
+            this.WispPic = new System.Windows.Forms.PictureBox();
+            this.BlossomPic = new System.Windows.Forms.PictureBox();
+            this.BlizzardPic = new System.Windows.Forms.PictureBox();
+            this.PrincePic = new System.Windows.Forms.PictureBox();
+            this.TrackHorseSpeed = new System.Windows.Forms.TrackBar();
+            this.HorseSpeedLbl = new System.Windows.Forms.Label();
+            this.Apple = new System.Windows.Forms.PictureBox();
+            this.TrophyImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.BetMoneyNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BetHorseNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WispPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlossomPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlizzardPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrincePic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackHorseSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Apple)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrophyImg)).BeginInit();
             this.SuspendLayout();
             // 
             // RaceBtn
             // 
             this.RaceBtn.Enabled = false;
             this.RaceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RaceBtn.Location = new System.Drawing.Point(12, 503);
+            this.RaceBtn.Location = new System.Drawing.Point(12, 539);
             this.RaceBtn.Name = "RaceBtn";
-            this.RaceBtn.Size = new System.Drawing.Size(124, 66);
+            this.RaceBtn.Size = new System.Drawing.Size(124, 73);
             this.RaceBtn.TabIndex = 0;
             this.RaceBtn.Text = "Race!";
             this.RaceBtn.UseVisualStyleBackColor = true;
             this.RaceBtn.Click += new System.EventHandler(this.RaceBtn_Click);
-            // 
-            // PrincePic
-            // 
-            this.PrincePic.BackColor = System.Drawing.Color.Transparent;
-            this.PrincePic.Image = global::Horse_Race.MainResource.Prince;
-            this.PrincePic.Location = new System.Drawing.Point(-27, 12);
-            this.PrincePic.Name = "PrincePic";
-            this.PrincePic.Size = new System.Drawing.Size(182, 132);
-            this.PrincePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PrincePic.TabIndex = 1;
-            this.PrincePic.TabStop = false;
-            // 
-            // BlizzardPic
-            // 
-            this.BlizzardPic.BackColor = System.Drawing.Color.Transparent;
-            this.BlizzardPic.Image = global::Horse_Race.MainResource.Blizzard;
-            this.BlizzardPic.Location = new System.Drawing.Point(-27, 254);
-            this.BlizzardPic.Name = "BlizzardPic";
-            this.BlizzardPic.Size = new System.Drawing.Size(182, 132);
-            this.BlizzardPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BlizzardPic.TabIndex = 3;
-            this.BlizzardPic.TabStop = false;
-            // 
-            // BlossomPic
-            // 
-            this.BlossomPic.BackColor = System.Drawing.Color.Transparent;
-            this.BlossomPic.Image = global::Horse_Race.MainResource.Blossom;
-            this.BlossomPic.Location = new System.Drawing.Point(-27, 375);
-            this.BlossomPic.Name = "BlossomPic";
-            this.BlossomPic.Size = new System.Drawing.Size(182, 132);
-            this.BlossomPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BlossomPic.TabIndex = 4;
-            this.BlossomPic.TabStop = false;
             // 
             // JacRadioBtn
             // 
@@ -274,7 +250,7 @@
             // RestartBtn
             // 
             this.RestartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RestartBtn.Location = new System.Drawing.Point(12, 575);
+            this.RestartBtn.Location = new System.Drawing.Point(12, 622);
             this.RestartBtn.Name = "RestartBtn";
             this.RestartBtn.Size = new System.Drawing.Size(124, 66);
             this.RestartBtn.TabIndex = 29;
@@ -283,33 +259,128 @@
             this.RestartBtn.Visible = false;
             this.RestartBtn.Click += new System.EventHandler(this.RestartBtn_Click);
             // 
+            // RaceResultTxtBox
+            // 
+            this.RaceResultTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RaceResultTxtBox.Location = new System.Drawing.Point(333, 539);
+            this.RaceResultTxtBox.Name = "RaceResultTxtBox";
+            this.RaceResultTxtBox.ReadOnly = true;
+            this.RaceResultTxtBox.Size = new System.Drawing.Size(889, 30);
+            this.RaceResultTxtBox.TabIndex = 31;
+            this.RaceResultTxtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RaceResultTxtBox.Visible = false;
+            // 
+            // NewGameBtn
+            // 
+            this.NewGameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewGameBtn.Location = new System.Drawing.Point(12, 622);
+            this.NewGameBtn.Name = "NewGameBtn";
+            this.NewGameBtn.Size = new System.Drawing.Size(124, 66);
+            this.NewGameBtn.TabIndex = 32;
+            this.NewGameBtn.Text = "New Game?";
+            this.NewGameBtn.UseVisualStyleBackColor = true;
+            this.NewGameBtn.Visible = false;
+            this.NewGameBtn.Click += new System.EventHandler(this.NewGameBtn_Click);
+            // 
             // WispPic
             // 
             this.WispPic.BackColor = System.Drawing.Color.Transparent;
             this.WispPic.Image = global::Horse_Race.MainResource.Wisp;
-            this.WispPic.Location = new System.Drawing.Point(-27, 132);
+            this.WispPic.Location = new System.Drawing.Point(-27, 140);
             this.WispPic.Name = "WispPic";
             this.WispPic.Size = new System.Drawing.Size(182, 132);
             this.WispPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.WispPic.TabIndex = 30;
             this.WispPic.TabStop = false;
             // 
-            // RaceResultTxtBox
+            // BlossomPic
             // 
-            this.RaceResultTxtBox.Location = new System.Drawing.Point(440, 503);
-            this.RaceResultTxtBox.Name = "RaceResultTxtBox";
-            this.RaceResultTxtBox.ReadOnly = true;
-            this.RaceResultTxtBox.Size = new System.Drawing.Size(419, 22);
-            this.RaceResultTxtBox.TabIndex = 31;
-            this.RaceResultTxtBox.Visible = false;
+            this.BlossomPic.BackColor = System.Drawing.Color.Transparent;
+            this.BlossomPic.Image = global::Horse_Race.MainResource.Blossom;
+            this.BlossomPic.Location = new System.Drawing.Point(-27, 396);
+            this.BlossomPic.Name = "BlossomPic";
+            this.BlossomPic.Size = new System.Drawing.Size(182, 132);
+            this.BlossomPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BlossomPic.TabIndex = 4;
+            this.BlossomPic.TabStop = false;
+            // 
+            // BlizzardPic
+            // 
+            this.BlizzardPic.BackColor = System.Drawing.Color.Transparent;
+            this.BlizzardPic.Image = global::Horse_Race.MainResource.Blizzard;
+            this.BlizzardPic.Location = new System.Drawing.Point(-27, 268);
+            this.BlizzardPic.Name = "BlizzardPic";
+            this.BlizzardPic.Size = new System.Drawing.Size(182, 132);
+            this.BlizzardPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BlizzardPic.TabIndex = 3;
+            this.BlizzardPic.TabStop = false;
+            // 
+            // PrincePic
+            // 
+            this.PrincePic.BackColor = System.Drawing.Color.Transparent;
+            this.PrincePic.Image = global::Horse_Race.MainResource.Prince;
+            this.PrincePic.Location = new System.Drawing.Point(-27, 12);
+            this.PrincePic.Name = "PrincePic";
+            this.PrincePic.Size = new System.Drawing.Size(182, 132);
+            this.PrincePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PrincePic.TabIndex = 1;
+            this.PrincePic.TabStop = false;
+            // 
+            // TrackHorseSpeed
+            // 
+            this.TrackHorseSpeed.Location = new System.Drawing.Point(155, 572);
+            this.TrackHorseSpeed.Minimum = 1;
+            this.TrackHorseSpeed.Name = "TrackHorseSpeed";
+            this.TrackHorseSpeed.Size = new System.Drawing.Size(149, 56);
+            this.TrackHorseSpeed.TabIndex = 34;
+            this.TrackHorseSpeed.Value = 5;
+            this.TrackHorseSpeed.Visible = false;
+            // 
+            // HorseSpeedLbl
+            // 
+            this.HorseSpeedLbl.AutoSize = true;
+            this.HorseSpeedLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HorseSpeedLbl.Location = new System.Drawing.Point(186, 549);
+            this.HorseSpeedLbl.Name = "HorseSpeedLbl";
+            this.HorseSpeedLbl.Size = new System.Drawing.Size(95, 17);
+            this.HorseSpeedLbl.TabIndex = 35;
+            this.HorseSpeedLbl.Text = "Horse Speed:";
+            this.HorseSpeedLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HorseSpeedLbl.Visible = false;
+            // 
+            // Apple
+            // 
+            this.Apple.BackColor = System.Drawing.Color.Transparent;
+            this.Apple.Image = global::Horse_Race.MainResource.Apple;
+            this.Apple.Location = new System.Drawing.Point(205, 715);
+            this.Apple.Name = "Apple";
+            this.Apple.Size = new System.Drawing.Size(42, 43);
+            this.Apple.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Apple.TabIndex = 37;
+            this.Apple.TabStop = false;
+            // 
+            // TrophyImg
+            // 
+            this.TrophyImg.BackColor = System.Drawing.Color.Transparent;
+            this.TrophyImg.Enabled = false;
+            this.TrophyImg.Image = global::Horse_Race.MainResource.Trophy;
+            this.TrophyImg.Location = new System.Drawing.Point(114, 606);
+            this.TrophyImg.Name = "TrophyImg";
+            this.TrophyImg.Size = new System.Drawing.Size(237, 246);
+            this.TrophyImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TrophyImg.TabIndex = 38;
+            this.TrophyImg.TabStop = false;
+            this.TrophyImg.Click += new System.EventHandler(this.TrophyImg_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Horse_Race.MainResource.RaceTrack;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1582, 793);
+            this.ClientSize = new System.Drawing.Size(1582, 841);
+            this.Controls.Add(this.HorseSpeedLbl);
+            this.Controls.Add(this.TrackHorseSpeed);
             this.Controls.Add(this.RaceResultTxtBox);
             this.Controls.Add(this.WispPic);
             this.Controls.Add(this.RestartBtn);
@@ -331,16 +402,22 @@
             this.Controls.Add(this.MelRadioBtn);
             this.Controls.Add(this.JacRadioBtn);
             this.Controls.Add(this.RaceBtn);
+            this.Controls.Add(this.NewGameBtn);
+            this.Controls.Add(this.TrophyImg);
+            this.Controls.Add(this.Apple);
             this.DoubleBuffered = true;
             this.Name = "MainForm";
             this.Text = "Horse Race";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PrincePic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BlizzardPic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BlossomPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BetMoneyNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BetHorseNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WispPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlossomPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlizzardPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrincePic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackHorseSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Apple)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrophyImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,6 +446,11 @@
         private System.Windows.Forms.Button RestartBtn;
         private System.Windows.Forms.PictureBox WispPic;
         private System.Windows.Forms.TextBox RaceResultTxtBox;
+        private System.Windows.Forms.Button NewGameBtn;
+        private System.Windows.Forms.TrackBar TrackHorseSpeed;
+        private System.Windows.Forms.Label HorseSpeedLbl;
+        private System.Windows.Forms.PictureBox Apple;
+        private System.Windows.Forms.PictureBox TrophyImg;
     }
 }
 

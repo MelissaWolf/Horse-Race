@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Horse_Race.Bet">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Bet.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,36 +17,43 @@
   <Class Name="Horse_Race.Horse">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAgAAAAAAAAAAAAAAAAAQAABAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>IAAAgAAAAAAAAAAAAAAAgAQAABAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Horse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Horse_Race.Jack">
     <Position X="4.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAICGAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAICCAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Jack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Horse_Race.Marina">
     <Position X="7.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAICGAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAICCAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Marina.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Horse_Race.Melissa">
     <Position X="6" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAICGAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAICCAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Melissa.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Horse_Race.Punter">
     <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAICGAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAICCAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Punter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Horse_Race.Apple">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAABAAAAEAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Apple.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
