@@ -210,7 +210,7 @@ namespace Horse_Race
                 Random rand = new Random();
 
                 //Placing lucky apple
-                LuckyApple = new Apple(rand.Next(1, 5), Apple, rand.Next(0, 10) == 0 ? true : false); //Determines is Apple is rotten or fresh
+                LuckyApple = new Apple(rand.Next(1, 5), Apple, rand.Next(0, 8) == 0 ? true : false); //Determines is Apple is rotten or fresh
 
                 LuckyApple.PlaceApple();
             }
