@@ -11,23 +11,23 @@ namespace Horse_Race
     {
         public static int count;
 
-        public static Punter MakePunter(string name, RadioButton radiobtn, TextBox txtBox, Bet myBet)
+        public static Punter MakePunter(string name, RadioButton radiobtn, TextBox txtBox)
         {
 
             if (name == "Jack")
             {
                 count++;
-                return new Jack(name, 50, radiobtn, txtBox, myBet);
+                return new Jack(name, 50, radiobtn, txtBox);
             }
             else if (name == "Melissa")
             {
                 count++;
-                return new Melissa(name, 50, radiobtn, txtBox, myBet);
+                return new Melissa(name, 50, radiobtn, txtBox);
             }
             else if (name == "Marina")
             {
                 count++;
-                return new Marina(name, 50, radiobtn, txtBox, myBet);
+                return new Marina(name, 50, radiobtn, txtBox);
             }
 
             return null;

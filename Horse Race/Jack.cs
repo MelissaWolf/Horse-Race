@@ -19,13 +19,17 @@ namespace Horse_Race
 
         public override Bet MyBet { get; set; }
 
-        public Jack(string name, int totMoney, RadioButton radiobtn, TextBox txtBox, Bet myBet)
+        public Jack(string name, int totMoney, RadioButton radiobtn, TextBox txtBox)
         {
             Name = name;
             TotMoney = totMoney;
             RadioBtn = radiobtn;
             TxtBox = txtBox;
-            MyBet = myBet;
+        }
+
+        public override void Betting(Bet bet)
+        {
+            MyBet = bet;
         }
     }
 }

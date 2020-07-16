@@ -25,11 +25,6 @@ namespace Horse_Race
         //Creating Punters Array
         Punter[] Punters = new Punter[3];
 
-        //Creating Bets
-        Bet JacBet;
-        Bet MelBet;
-        Bet MarBet;
-
         //Creating Apple
         Apple LuckyApple;
 
@@ -47,12 +42,13 @@ namespace Horse_Race
             Horses[3] = (Blossom = new Horse("Blossom", 4, BlossomPic));
 
             //Defining Punters
-            Punters[0] = Factory.MakePunter("Jack", JacRadioBtn, JacTxtBox, JacBet);
-            Punters[1] = Factory.MakePunter("Melissa", MelRadioBtn, MelTxtBox, MelBet);
-            Punters[2] = Factory.MakePunter("Marina", MarRadioBtn, MarTxtBox, MarBet);
+            Punters[0] = Factory.MakePunter("Jack", JacRadioBtn, JacTxtBox);
+            Punters[1] = Factory.MakePunter("Melissa", MelRadioBtn, MelTxtBox);
+            Punters[2] = Factory.MakePunter("Marina", MarRadioBtn, MarTxtBox);
 
             //Defining Apple
             LuckyApple = new Apple(0, Apple, false);
+
         }
 
         private async void RaceBtn_Click(object sender, EventArgs e)
@@ -141,7 +137,7 @@ namespace Horse_Race
             {
                 if (Punters[i].RadioBtn.Checked == true)
                 {
-                    Punters[i].MyBet = new Bet(Horses[Convert.ToInt32(BetHorseNumBox.Value) - 1], Convert.ToInt32(BetMoneyNumBox.Value));
+                    Punters[i].Betting(new Bet(Horses[Convert.ToInt32(BetHorseNumBox.Value) - 1], Convert.ToInt32(BetMoneyNumBox.Value)));
                     Punters[i].TxtBox.Text = Punters[i].Name + " betted $" + BetMoneyNumBox.Value + " on " + Horses[Convert.ToInt32(BetHorseNumBox.Value) - 1].Name
                         + "(" + BetHorseNumBox.Value + ").";
 

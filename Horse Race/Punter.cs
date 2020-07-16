@@ -81,5 +81,7 @@ namespace Horse_Race
             RadioBtn.Enabled = true;
             TxtBox.Text = Name + " place your bet";
         }
+
+        public abstract void Betting(Bet bet);
     }
 }
