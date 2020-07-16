@@ -25,15 +25,10 @@ namespace UnitTestHR
             TextBox MelTxtBox = null;
             TextBox MarTxtBox = null;
 
-            //Creating Bets
-            Bet JacBet = null;
-            Bet MelBet = null;
-            Bet MarBet = null;
-
             //Defining Punters
-            Factory.MakePunter("Jack", JacRadioBtn, JacTxtBox, JacBet);
-            Factory.MakePunter("Melissa", MelRadioBtn, MelTxtBox, MelBet);
-            Factory.MakePunter("Marina", MarRadioBtn, MarTxtBox, MarBet);
+            Factory.MakePunter("Jack", JacRadioBtn, JacTxtBox);
+            Factory.MakePunter("Melissa", MelRadioBtn, MelTxtBox);
+            Factory.MakePunter("Marina", MarRadioBtn, MarTxtBox);
 
             Assert.IsTrue(Factory.count == Punters.Length);
         }
