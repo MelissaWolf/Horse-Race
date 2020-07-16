@@ -329,11 +329,11 @@
             // TrackHorseSpeed
             // 
             this.TrackHorseSpeed.Location = new System.Drawing.Point(155, 572);
-            this.TrackHorseSpeed.Minimum = 1;
+            this.TrackHorseSpeed.Maximum = 8;
             this.TrackHorseSpeed.Name = "TrackHorseSpeed";
             this.TrackHorseSpeed.Size = new System.Drawing.Size(149, 56);
             this.TrackHorseSpeed.TabIndex = 34;
-            this.TrackHorseSpeed.Value = 5;
+            this.TrackHorseSpeed.Value = 6;
             this.TrackHorseSpeed.Visible = false;
             // 
             // HorseSpeedLbl

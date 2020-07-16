@@ -63,6 +63,7 @@ namespace Horse_Race
             TrophyImg.Enabled = false;
             TrackHorseSpeed.Visible = true;
             HorseSpeedLbl.Visible = true;
+            int[] horseSpeed = {2000, 1000, 500, 250, 100, 75, 50, 25, 10}; //Max is 8 due to TrackerBar
 
             while (results == "") //Run til we have a winner
             {
@@ -83,7 +84,7 @@ namespace Horse_Race
                 }
 
                 //Repeats after tiny break
-                await Task.Delay(300 / TrackHorseSpeed.Value);
+                await Task.Delay(horseSpeed[TrackHorseSpeed.Value]);
             }
 
             TrackHorseSpeed.Visible = false;
